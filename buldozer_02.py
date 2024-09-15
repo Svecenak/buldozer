@@ -65,7 +65,8 @@ def main():
     # topcap(1, 12.5, "Chloralhydrát")
     
     nadpis("ATBs")
-    print(f"Paracetamol == {davky2(10,15)}")
+    paralen= davky2(10,15)
+    print(f"Paracetamol == {paralen[0]} mg - {paralen[1]} mg.")
     
 
 if __name__ == "__main__":
