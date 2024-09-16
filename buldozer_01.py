@@ -1,7 +1,7 @@
 def zadavacka(pozadavek): #požaduje nenulové číslo
     while True:
         try:
-            zadek = float(input(f"Jaká je {pozadavek} pacienta? \n").strip().lower().replace(",","."))
+            zadek = float(input(f"Jaká je {pozadavek}? \n").strip().lower().replace(",","."))
             if 200 > zadek > 0:
                 return zadek
             else:
@@ -65,8 +65,45 @@ def main():
     topcap(1, 12.5, "Chloralhydrát")
     
     nadpis("ATBs")
-    print("WIP, hehe :))")
-    
+    """Rozhodovací špinavej if pro Amoksiklav"""
+    if hp < 40:
+        davky1(30, "Amoksiklav á 8h")
+        davky1(90, "Amoksiklav celkem za 24h")
+    else:
+        print("Amoksiklav á 8h == 1.2 g")
+
+    """Ampicilin/sulbaktam rozhodovací strom"""
+    if hp < 60:
+        davky2(33,50, "Ampicillin/sulbaktam á 8h")
+    else:
+        print("Ampicillin/Sulbaktam á 8h == 3g  (maximální dávka)")
+
+    """Genťák strom"""
+    if hp <= 40:
+        davky1(5, "Gentamicin á 24h")
+    else:
+        print("Gentamicin á 24h == 320mg (maximální dávka)")
+    print("     ->kape 30min (ve 20-30ml F1/1)")
+
+    """Klindamycin strom"""
+    davky2(7.5,12.5, "Klindamycin á 6h")
+    davky2(10,16.66666666666, "Klindamycin á 8h")
+    print("     ->preferováno po 6h\n      ->ředění v F1/1, ne víc než 6mg ATB v ml")
+
+    """Metronidazol strom"""
+    if hp < 50:
+        davky2(6.6666666, 10, "Metronidazol á 8h")
+    else:
+        print("Metronidazol á 8h == 500mg (od 50kg jednotná dávka)")
+    print("     ->kape 60min")
+
+    """Tazocin strom"""
+    if hp < 50:
+        davky2(50, 75, "Tazocin á 6h")
+        davky2(66.666666, 100, "Tazocin á 8h")
+    else:
+        print("Tazocin á 8h == 4.5g (od 50kg jednotná dávka)")
+    print("     ->kape 30min")
 
 if __name__ == "__main__":
     main()
