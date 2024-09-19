@@ -62,7 +62,7 @@ def main():
     
     nadpis("Tlumení")
     davky1(0.1, "Midazolam")
-    topcap(1, 12.5, "Chloralhydrát")
+    topcap(1, 20, "Chloralhydrát")
     
     nadpis("ATBs")
     """Rozhodovací špinavej if pro Amoksiklav"""
@@ -88,7 +88,7 @@ def main():
     """Klindamycin strom"""
     davky2(7.5,12.5, "Klindamycin á 6h")
     davky2(10,16.66666666666, "Klindamycin á 8h")
-    print("     ->preferováno po 6h\n      ->ředění v F1/1, ne víc než 6mg ATB v ml")
+    print("     ->preferováno po 6h\n     ->ředění v F1/1, ne víc než 6mg ATB v ml")
 
     """Metronidazol strom"""
     if hp < 50:
