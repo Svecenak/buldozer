@@ -70,7 +70,7 @@ def main():
         davky1(30, "Amoksiklav á 8h")
         davky1(90, "Amoksiklav celkem za 24h")
     else:
-        print("Amoksiklav á 8h == 1.2 g")
+        print("Amoksiklav á 8h == 1.2 g (jednotná dávka nad 40kg)")
 
     """Ampicilin/sulbaktam rozhodovací strom"""
     if hp < 60:
@@ -100,10 +100,19 @@ def main():
     """Tazocin strom"""
     if hp < 50:
         davky2(50, 75, "Tazocin á 6h")
+        #50-75mg/kg po 6h
         davky2(66.666666, 100, "Tazocin á 8h")
+        #66-100mg/kg po 8h
     else:
         print("Tazocin á 8h == 4.5g (od 50kg jednotná dávka)")
     print("     ->kape 30min")
 
+    """Meropenem strom"""
+    #10-20mg/kg, od 50kg 500-1000mg
+    if hp < 50:
+        davky2(10,20, "Meropenem á 8h")
+    else:
+        print("Meropenem á 8h == 500mg - 1g (od 50kg jednotná dávka)")
+    print("     ->kape 15-30min")
 if __name__ == "__main__":
     main()
