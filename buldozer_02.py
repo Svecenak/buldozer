@@ -23,11 +23,11 @@ def davky2(min:float, max:float) -> tuple: #zadávám min a max dávku v mg/kg
     return (min_dose, max_dose)
 
 def topcap(dose:float, tc:float): #zadavam davku v mg/kg, max. kg pac (vetne)
-    """Fce pro léky s horním hmotnostním omezením, při překročení vrátí false"""
+    """Fce pro léky s horním hmotnostním omezením, při překročení vrátí 0"""
     if hp <= tc:
         return round(dose*hp, ndigits=2)
     else:
-        return False
+        return 0
 
 def maxdose(dose:float, md:float) -> float: #zadavam davku mg/kg, max davku v mg
     """Fce pro léky s maximální dávkou, při dosažení md vrátí její hodnotu"""
@@ -56,10 +56,29 @@ def nadpis(obsah):
     
 def main():
     nadpis("Infuzní terapie")
+    print(f"Bazální potřeba tekutin za 24h == {infuze(0)} ml.")
+    print(f"          tzn. rychlost infuze == {infuze(1)} ml/h.")
 
-    
+    nadpis("Analgezie")
+    """Paralen"""
     paralen= davky2(10,15)
     print(f"Paracetamol == {paralen[0]} mg - {paralen[1]} mg.")
+
+    """Novalgin"""
+    novalgin= davky2(10,15)
+    print(f"Novalgin == {novalgin[0]} mg - {novalgin[1]} mg.")
+
+    """Ibuprofen"""
+    Ibuprofen= davky2(5,10)
+    print(f"Ibuprofen == {Ibuprofen[0]} mg - {Ibuprofen[1]} mg.")
+
+    nadpis("Tlumení")
+    """Midazolam"""
+    print(f"Midazolam == {davky1(0.1)} mg.")
+
+    """Chloralhydrát"""
+    print(f"Chloralhydrát == {topcap(1,20)} ml.")
+
     
 
 if __name__ == "__main__":
