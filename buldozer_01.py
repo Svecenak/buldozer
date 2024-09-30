@@ -22,14 +22,14 @@ def davky2(min, max, lek): #zadávám min a max dávku v mg/kg a název léku
     max_dose=round(max*hp, ndigits=2)
     print(f"{lek} == od {min_dose} mg do {max_dose} mg.")
 
-def topcap(dose, tc, lek): #zadavam davku v mg/kg, max. kg pac (vetne) a nazev leku
+def topcap(dose, tc, lek): #zadavam davku v mg/kg, max. kg pac (vetne) a nazev léku
     """Fce pro léky s hmotnostním omezením"""
     if hp <= tc:
         print(f"{lek} v dávce {round(dose*hp, ndigits=2)}mg.")
     else:
         print(f"Na {lek} je už moc velkej (do {tc}kg).")
 
-def maxdose(dose, md, lek): #zadavam davku mg/kg, max advku v mg a nazev leku
+def maxdose(dose, md, lek): #zadavam davku mg/kg, max advku v mg a nazev léku
     """Fce pro léky s maximální dávkou"""
     davka=round(hp*dose, ndigits=2)
     if davka <= md:
@@ -67,10 +67,11 @@ def main():
     nadpis("ATBs")
     """Rozhodovací špinavej if pro Amoksiklav"""
     if hp < 40:
-        davky1(30, "Amoksiklav á 8h")
-        davky1(90, "Amoksiklav celkem za 24h")
+        davky1(30, "Amoksiklav á 8h i.v.")
+        davky1(10, "Amoksiklav á 8h p.o.")
     else:
-        print("Amoksiklav á 8h == 1.2 g (jednotná dávka nad 40kg)")
+        print("Amoksiklav á 8h == 1.2 g (jednotná dávka nad 40kg) \nAmoksiklav p.o. á 8h == 625mg (1 tbl)"
+              )
 
     """Ampicilin/sulbaktam rozhodovací strom"""
     if hp < 60:
@@ -114,5 +115,20 @@ def main():
     else:
         print("Meropenem á 8h == 500mg - 1g (od 50kg jednotná dávka)")
     print("     ->kape 15-30min")
+
+    """Cefotaxim strom"""
+    #50-100mg/kg/den, od 50kg 1-2g po 8h
+    if hp < 50:
+        davky2(12.5,25, "Cefotaxim á 6h")
+    else:
+        print("Cefotaxim á 8h == 1g - 2g (od 50kg jednotná dávka)")
+    print("     ->kape 15-30min")
+
+
+    nadpis("Misc")
+
+    """Ondansetron strom"""
+    #0.1mg/kg, do max. 6mg
+    maxdose(0.1,6,"Ondansetron")
 if __name__ == "__main__":
     main()
