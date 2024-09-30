@@ -67,11 +67,18 @@ def main():
     nadpis("ATBs")
     """Rozhodovací špinavej if pro Amoksiklav"""
     if hp < 40:
+<<<<<<< HEAD
         davky1(30, "Amoksiklav á 8h i.v.")
         davky1(10, "Amoksiklav á 8h p.o.")
     else:
         print("Amoksiklav á 8h == 1.2 g (jednotná dávka nad 40kg) \nAmoksiklav p.o. á 8h == 625mg (1 tbl)"
               )
+=======
+        davky1(30, "Amoksiklav i.v. á 8h")
+        davky1(10, "Amoksiklav p.o. á 8h")
+    else:
+        print("Amoksiklav i.v. á 8h == 1.2 g (jednotná dávka nad 40kg)")
+>>>>>>> cff3395b6e74ea39f500e2f0aeb3f3ef4662130e
 
     """Ampicilin/sulbaktam rozhodovací strom"""
     if hp < 60:
